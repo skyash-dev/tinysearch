@@ -1,9 +1,12 @@
-import { Hono } from 'hono'
+import { Hono } from "hono";
+import searchRoute from "./routes/search";
 
-const app = new Hono()
+const app = new Hono();
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+app.get("/", (c) => {
+  return c.text("Welcome to TinySearch");
+});
 
-export default app
+app.basePath("/api").route("/search", searchRoute);
+
+export default app;
